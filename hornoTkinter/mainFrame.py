@@ -10,7 +10,7 @@ import matplotlib.animation as animation
 from threading import Thread
 ##########
 
-arduino = serial.Serial("COM4",9600,timeout=1.0)
+arduino = serial.Serial("COM8",9600,timeout=1.0)
 
 class MainFrame(Frame):
 
@@ -42,7 +42,7 @@ class MainFrame(Frame):
         self.pack()
         self.hilo1 = threading.Thread(target=self.getSensorValues,daemon=True)
         #global arduino
-        #self.arduino = serial.Serial("COM4",9600,timeout=1.0)
+        self.arduino = serial.Serial("COM7",9600,timeout=1.0)
         time.sleep(1)
         self.value_pot = StringVar()
         self.value_dis = StringVar()
@@ -65,18 +65,21 @@ class MainFrame(Frame):
         print("*** finalizando...")
 
     def getSensorValues(self):
+
+        print("Lectura")
+        
         while self.isRun:
             cad =arduino.readline().decode('ascii').strip()
+            print(cad)
             if cad:
                 print(cad)         
                 pos=cad.index(":")
                 label=cad[:pos]
                 value=cad[pos+1:]
-                if label == 'dis':
-                    self.value_dis.set(value)                   
-                if label == 'pot':
-                    self.value_pot.set(value)
-                    
+                #if label == 'dis':
+                self.value_dis.set(value)
+                #if label == 'pot':
+                self.value_pot.set(label)
         
 
         
@@ -115,7 +118,7 @@ class MainFrame(Frame):
         Canvas._tkcanvas.grid(row = 0)
 
     def fEnviaMot(self):
-        cad = "mot:" + self.value_mot.get() + self.value_mot2.get()
+        cad = self.value_mot.get() + ":" +self.value_mot2.get()
         self.arduino.write(cad.encode('ascii'))
         print(cad)
 
@@ -138,7 +141,3 @@ class MainFrame(Frame):
         Button(self,text="Iniciar", command=self.fEnviaMot).place(x=360,y=160)
         Button(self,text="Graficar", command=self.fGrafica).place(x=360,y=190)
         #canvas = Canvas(root, bg='red')
-         
-        
-        
-        Canvas(self, bg='red', width=500, height=500).place(x=10,y=240)       

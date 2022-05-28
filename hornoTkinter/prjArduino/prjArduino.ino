@@ -26,6 +26,7 @@ void fnPeso(){
   peso =analogRead(PIN_POT);
   if (peso != value_peso){
     value_peso = peso;
+    //Serial.println("Dentro de la funcion: " + (String)value_peso);
     //lcd.setCursor(0,1);
     //lcd.print("Peso: " + (String)peso);    
   }  
@@ -54,24 +55,27 @@ Ticker ticPeso(fnPeso,500);
 Ticker ticTemperatura(fnTemperatura,500);
 
 void fnActuadores(String cad){//tiempo y temperatura
-  Serial.print("actuadores");
+  Serial.print("actuadores: " + cad);
+  lcd.setCursor(0,1);
+  lcd.print("actuadores: " + cad);
   int pos;
-  String label,value;
+  String tiemIn, tempIn;
   cad.trim();
   cad.toLowerCase();
   pos = cad.indexOf(':');
-  label= cad.substring(0,pos);
-  value= cad.substring(pos+1); 
+  tiemIn= cad.substring(0,pos);
+  tempIn= cad.substring(pos+1);
 
-  if (label.equals("tie")){//formato > HH:MM
-    if(value_mot != value.toInt()){
-      value_mot = value.toInt();  
+  //if (label.equals("tie")){//formato > HH:MM
+  //  if(value_mot != value.toInt()){
+      //value_mot = value.toInt();  
       lcd.setCursor(0,1);
-      lcd.print("Temp: " + (String)value_mot);
-      Serial.println(value_mot);
-    }    
-  }
-  
+      lcd.print(tiemIn + " : " + tempIn);
+      delay(500);
+      //Serial.println(value_mot);
+  //  }    
+  //}
+  /*
   if (label.equals("tem")){//formato int
     if(value_led != value.toInt()){
       value_led = value.toInt();
@@ -80,7 +84,7 @@ void fnActuadores(String cad){//tiempo y temperatura
       lcd.print("led" + (String)value_led);
       Serial.println(value_led);
     }
-  }
+  }*/
 }
 
 void setup() {
@@ -112,10 +116,13 @@ void loop() {
   ticPeso.update();
   ticTemperatura.update();
 
-  value_tempProm = 0;
-  value_peso = 0;
+  //value_tempProm = 0;
+  //value_peso = 0;
   lcd.setCursor(0,0);
-  lcd.print((String)value_tempProm + "°, " + (String)value_peso);
+  lcd.print((String)value_tempProm + (char)223 + ", " + (String)value_peso);
+  Serial.print((String)value_tempProm + ":" + (String)value_peso);
+  delay(1000);
+  lcd.clear();
   /*
   lcd.clear();
   lcd.setCursor(0,0);

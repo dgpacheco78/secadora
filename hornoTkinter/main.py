@@ -1,6 +1,6 @@
 from mainFrame import MainFrame
 from tkinter import Tk
-from ttkbootstrap import Style
+#from ttkbootstrap import Style
 
 def main():
     root = Tk()
