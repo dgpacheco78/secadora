@@ -30,7 +30,7 @@ void loop() {
   lcd.setCursor(0, 1);
   lcd.print(String(tempProm) + ":" + String(carga));
   //{"temp":60, "tiem":120, "acti":0}
-  //Serial.println("{\"temp\":" + String(tempProm) +", \"carg\":" + String(carga) +"}");
-  Serial.println(String(tempProm) + ":" + String(carga));
+  Serial.println("{\"temp\":" + String(tempProm) +", \"carg\":" + String(carga) +"}");
+  //Serial.println(String(tempProm) + ":" + String(carga));
   delay(500);
 }
