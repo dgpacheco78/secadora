@@ -1,0 +1,1141 @@
+[
+    {
+        "id": "4bc8dc03b2e282e9",
+        "type": "tab",
+        "label": "Secadora de Alimentos",
+        "disabled": false,
+        "info": "# Secadora Industrial de alimentos"
+    },
+    {
+        "id": "011d668f756f437e",
+        "type": "ui_button",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "992a6f703807e3e6",
+        "order": 13,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Paro de emergencia",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "comando:regar",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 740,
+        "y": 1080,
+        "wires": [
+            [
+                "f4c0d4579d193eab"
+            ]
+        ]
+    },
+    {
+        "id": "aae73ac5f32a0914",
+        "type": "ui_chart",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "fc30c32d18be820f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Gráfica temperatura:  {{msg.payload}}ºC",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 810,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17cd0331c57be4cb",
+        "type": "ui_chart",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "fc30c32d18be820f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Peso (gramos): {{msg.payload}}%",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "25",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 810,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45bc5dbc6f2dbd07",
+        "type": "mqtt in",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/lectura/carga",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a11348fa.782ef8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 520,
+        "y": 20,
+        "wires": [
+            [
+                "17cd0331c57be4cb"
+            ]
+        ]
+    },
+    {
+        "id": "941ced9bfda49ece",
+        "type": "mqtt in",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/lectura/rpm",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a11348fa.782ef8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 520,
+        "y": 200,
+        "wires": [
+            [
+                "4c37b1febe06f17c"
+            ]
+        ]
+    },
+    {
+        "id": "39b4659ce179f2e3",
+        "type": "mqtt in",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/lectura/temperatura",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "a11348fa.782ef8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 540,
+        "y": 80,
+        "wires": [
+            [
+                "aae73ac5f32a0914",
+                "e18b2acee60031e0"
+            ]
+        ]
+    },
+    {
+        "id": "2cec118db48b2e0e",
+        "type": "ui_button",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "992a6f703807e3e6",
+        "order": 11,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Iniciar proceso",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "icon": "",
+        "payload": "ok",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 740,
+        "y": 960,
+        "wires": [
+            [
+                "2de37c6b904767c6"
+            ]
+        ]
+    },
+    {
+        "id": "2de37c6b904767c6",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "var today = new Date();\n//var periodoT = today.getTime() + global.get(\"tiempo1\") * 3600000;\n\n//var periodoT = today.getTime() + 0.02 * 3600000 + 60000;\nvar periodoT = today.getTime() + global.get(\"tiempo1\") * 3600000 + 60000;\n//var periodoT = today.getTime() + global.get(\"tiempo1\");\n\nglobal.set(\"estadoSistema\", \"2\");\nglobal.set(\"periodo\", periodoT);\n\nvar temp = global.get(\"temperatura1\");\nvar tiem = global.get(\"tiempo1\");\n\nif(typeof temp === 'undefined' || typeof tiem === 'undefined'){\n    temp = 0;\n    tiem = 0;\n}\n\n//msg.payload = periodoT;\nmsg.payload = \"{\\\"temp\\\":\" + temp + \", \\\"tiem\\\":\" + tiem + \", \\\"acti\\\":2}\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 960,
+        "wires": [
+            [
+                "cbcddbc3514e0b0d",
+                "aef86b8eb625c6e3"
+            ]
+        ]
+    },
+    {
+        "id": "cbcddbc3514e0b0d",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "aef86b8eb625c6e3",
+        "type": "mqtt out",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/controles",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a11348fa.782ef8",
+        "x": 1130,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "85bba11f9ebbfbae",
+        "type": "json",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "052fb28751da795a",
+                "33cd91b7f8058ebc"
+            ]
+        ]
+    },
+    {
+        "id": "052fb28751da795a",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "msg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 360,
+        "wires": [
+            [
+                "3b957171b85abc29"
+            ]
+        ]
+    },
+    {
+        "id": "a01d0d6fdf13eb21",
+        "type": "mqtt in",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "sic/flow/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "edd3004a.11da88",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "85bba11f9ebbfbae"
+            ]
+        ]
+    },
+    {
+        "id": "3b957171b85abc29",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "33cd91b7f8058ebc",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "msg.payload = msg.payload.humedad;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e18b2acee60031e0",
+        "type": "ui_gauge",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "1693af62147ebba8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura actual",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a78cadf1cbf26abf",
+        "type": "ui_text_input",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "label": "Temperatura",
+        "tooltip": "",
+        "group": "992a6f703807e3e6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "3b4f2458c78a626b"
+            ]
+        ]
+    },
+    {
+        "id": "3b4f2458c78a626b",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "global.set(\"temperatura1\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5787997b104de1b5",
+        "type": "ui_text_input",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "label": "Tiempo",
+        "tooltip": "",
+        "group": "992a6f703807e3e6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 800,
+        "y": 620,
+        "wires": [
+            [
+                "6d156241aff388b6"
+            ]
+        ],
+        "info": "<h1>{{msg.payload}}<h1>"
+    },
+    {
+        "id": "6d156241aff388b6",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "global.set(\"tiempo1\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c37b1febe06f17c",
+        "type": "ui_gauge",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "1693af62147ebba8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Velocidad motor (rpm)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 860,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2e13e3416829ccd3",
+        "type": "mqtt out",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/controles",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a11348fa.782ef8",
+        "x": 1130,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "f4c0d4579d193eab",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "global.set(\"estadoSistema\", \"3\");\nmsg.payload = \"{\\\"temp\\\":0, \\\"tiem\\\":0, \\\"acti\\\":3}\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1080,
+        "wires": [
+            [
+                "2e13e3416829ccd3",
+                "f118774561c1bf5a"
+            ]
+        ]
+    },
+    {
+        "id": "4e14c1a27f9457bd",
+        "type": "ui_text_input",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "label": "Muestra",
+        "tooltip": "",
+        "group": "992a6f703807e3e6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 800,
+        "y": 680,
+        "wires": [
+            [
+                "e6482466ffb5d465"
+            ]
+        ]
+    },
+    {
+        "id": "66b6c1e752c919c2",
+        "type": "ui_text_input",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "label": "Peso inical de la muestra",
+        "tooltip": "",
+        "group": "992a6f703807e3e6",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 850,
+        "y": 740,
+        "wires": [
+            [
+                "5bca6e53a99e158a"
+            ]
+        ]
+    },
+    {
+        "id": "e6482466ffb5d465",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "global.set(\"muestra\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5bca6e53a99e158a",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "global.set(\"pesoInical\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0369246bc32177e4",
+        "type": "inject",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "44c9a7c6f31d0508",
+                "2b2c23fe3f5db50b",
+                "bc98e5b987b91772"
+            ]
+        ]
+    },
+    {
+        "id": "44c9a7c6f31d0508",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "var today = new Date();\n\nvar periodo = global.get(\"periodo\");\n\nvar resta = periodo - today.getTime();\nvar horasDif = resta / 3600000;\nvar minInt = Math.floor((horasDif % 60 - Math.floor(horasDif)) * 60);\nvar minutos = \"\";\nif(minInt < 10)\n    minutos = \"0\" + minInt;\nelse \n    minutos = \"\" + minInt;\nvar hora = Math.floor(horasDif);\n\nvar finC = 0;\n\nif(hora >= 0 && minInt >= 0){\n    finC = hora + minInt;\n    msg.payload = hora + \":\" + minutos;\n}\nelse{\n    finC = -1;\n    msg.payload = \"0:00\";\n}\n\nglobal.set(\"finCiclo\", finC);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 540,
+        "wires": [
+            [
+                "dab44c03c514c84c",
+                "86f023b2aa894403"
+            ]
+        ]
+    },
+    {
+        "id": "dab44c03c514c84c",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f2648333f32e5aee",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "global.set(\"estadoSistema\", \"1\");\n\n//var temp = global.get(\"temperatura1\");\n//if(typeof temp === 'undefined')\n//    temp = 0;\n\nmsg.payload = \"{\\\"temp\\\":0, \\\"tiem\\\":0, \\\"acti\\\":1}\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 840,
+        "wires": [
+            [
+                "4849a7d2b74e2c5e",
+                "dc458c0763143dc0"
+            ]
+        ]
+    },
+    {
+        "id": "4849a7d2b74e2c5e",
+        "type": "mqtt out",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/controles",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a11348fa.782ef8",
+        "x": 1130,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "dc458c0763143dc0",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "391cf883a7b85072",
+        "type": "ui_button",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "group": "992a6f703807e3e6",
+        "order": 9,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Precalentado",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "blue",
+        "icon": "",
+        "payload": "ok",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 750,
+        "y": 840,
+        "wires": [
+            [
+                "f2648333f32e5aee"
+            ]
+        ]
+    },
+    {
+        "id": "2e9798d2d1c8c998",
+        "type": "ui_text",
+        "z": "4bc8dc03b2e282e9",
+        "group": "992a6f703807e3e6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<h2>Iniciales</h2>",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "86f023b2aa894403",
+        "type": "ui_text_input",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "992a6f703807e3e6",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 580,
+        "wires": [
+            []
+        ],
+        "info": "## {{msg.payload}}"
+    },
+    {
+        "id": "bca4f55eeee2704d",
+        "type": "ui_text",
+        "z": "4bc8dc03b2e282e9",
+        "group": "992a6f703807e3e6",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "<h2>Tiempo transcurrido</h2>",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 170,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4b1c0dbd6a120e2a",
+        "type": "ui_template",
+        "z": "4bc8dc03b2e282e9",
+        "group": "992a6f703807e3e6",
+        "name": "Alertas",
+        "order": 1,
+        "width": 8,
+        "height": 2,
+        "format": "<h1>\n    <font color = \"red\">\n<div ng-bind-html=\"msg.payload\"></div>\n    </font>\n</h1>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 340,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b2c23fe3f5db50b",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "var estadoSistema = global.get(\"estadoSistema\");\nvar finCiclo = global.get(\"finCiclo\");\nvar finCInt = parseInt(finCiclo);\nvar estado = \"\";\n\nif(finCInt > 0){\n    if(estadoSistema == \"1\"){\n        estado = \"Precalentando<br>el horno\";\n    }\n    else if(estadoSistema == \"2\"){\n        estado = \"Recibiendo datos<br> del horno\";\n    }\n    else if(estadoSistema == \"3\"){\n        estado = \"Paro de emergencia\";\n    }\n}\nelse if(finCInt == -1){\n    estado = \"Sistema en espera\";\n}\nelse{\n    estado = \"Fin de ciclo\";\n}\nglobal.set(\"estadoH\", estado);\nmsg.payload = estado;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "4b1c0dbd6a120e2a",
+                "e3d4ba851d76cc8c"
+            ]
+        ]
+    },
+    {
+        "id": "69bee7e1c11f463d",
+        "type": "mqtt in",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/lectura/msgArduino",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "a11348fa.782ef8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "c0efa1b9533b6744"
+            ]
+        ]
+    },
+    {
+        "id": "c0efa1b9533b6744",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "var mensajeA = msg.payload;\n\nif(mensajeA == \"mensajeA\")\nglobal.set(\"mensajeArduino\", true);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "c10d101742455b4a"
+            ]
+        ]
+    },
+    {
+        "id": "c10d101742455b4a",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e3d4ba851d76cc8c",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "bc98e5b987b91772",
+        "type": "function",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "func": "var estado = global.get(\"estadoH\");\n\nif(estado == \"Fin de ciclo\")\n    msg.payload = \"{\\\"temp\\\":0, \\\"tiem\\\":0, \\\"acti\\\":4}\";\nelse\n    msg.payload = \"\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 620,
+        "wires": [
+            [
+                "5bb2f335476ab18d"
+            ]
+        ]
+    },
+    {
+        "id": "5bb2f335476ab18d",
+        "type": "mqtt out",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "topic": "secadora/controles",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a11348fa.782ef8",
+        "x": 370,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f118774561c1bf5a",
+        "type": "debug",
+        "z": "4bc8dc03b2e282e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "e067dd773c9fb0c4",
+        "type": "ui_spacer",
+        "z": "4bc8dc03b2e282e9",
+        "name": "spacer",
+        "group": "a1db1541.074798",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "28714e343a713df6",
+        "type": "ui_spacer",
+        "z": "4bc8dc03b2e282e9",
+        "name": "spacer",
+        "group": "a1db1541.074798",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "2b05263866fcbf0e",
+        "type": "ui_spacer",
+        "z": "4bc8dc03b2e282e9",
+        "name": "spacer",
+        "group": "a1db1541.074798",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "b7311d051ffa238e",
+        "type": "ui_spacer",
+        "z": "4bc8dc03b2e282e9",
+        "name": "spacer",
+        "group": "992a6f703807e3e6",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "206f2d6036434d9e",
+        "type": "ui_spacer",
+        "z": "4bc8dc03b2e282e9",
+        "name": "spacer",
+        "group": "992a6f703807e3e6",
+        "order": 12,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "bab2fb9466623d88",
+        "type": "ui_spacer",
+        "z": "4bc8dc03b2e282e9",
+        "name": "spacer",
+        "group": "992a6f703807e3e6",
+        "order": 14,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "992a6f703807e3e6",
+        "type": "ui_group",
+        "name": "Estado",
+        "tab": "07a76028f25a0166",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "fc30c32d18be820f",
+        "type": "ui_group",
+        "name": "Graficas",
+        "tab": "07a76028f25a0166",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "a11348fa.782ef8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "localhost",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "hugo-SIC-453",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1693af62147ebba8",
+        "type": "ui_group",
+        "name": "Variables",
+        "tab": "07a76028f25a0166",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "a1db1541.074798",
+        "type": "ui_group",
+        "d": true,
+        "name": "Variables de Entrada",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": false
+    },
+    {
+        "id": "07a76028f25a0166",
+        "type": "ui_tab",
+        "name": "Secadora de Alimentos V0.1",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
