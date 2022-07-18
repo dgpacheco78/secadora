@@ -1,4 +1,4 @@
-Secadora Industrial de Alimentos
+<h1>Secadora Industrial de Alimentos</h1>
 
 <h2>Objetivo:</h2>
 Diseñar e implementar la automatización del proceso del secado de alimentos
