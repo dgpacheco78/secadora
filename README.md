@@ -17,4 +17,5 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
 <h2>Material necesario:</h2>
 <h3>MAX6675</h3>
 <p align = "justify">El MAX6675 es un convertidor Analógico a digital especializado para termopares tipo K. Con este módulo es posible conectar fácilmente un termopar a cualquier microcontrolador a través de una interfaz SPI unidireccional. Dentro de este pequeño circuito se encuentra la electrónica necesaria para amplificar, compensar y convertir a digital el voltaje generado por el termopar, lo que hace muy sencilla la tarea de conectar un termopar a un microcontrolador.
-![alt text](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/max6675.jpg?raw=true)
+
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/max6675.jpg)
