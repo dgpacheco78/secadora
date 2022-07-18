@@ -1,67 +1,66 @@
-from cgi import print_directory
-import paho.mqtt.client as mqtt #import the client1
-import time
-import serial
-import mysql.connector
-import json
-############
+from cgi import print_directory         #importar librerias necesarias para el funcionamiento del sistema
+import paho.mqtt.client as mqtt         #mqtt
+import time                             #retardos
+import serial                           #comunicacion serial
+import mysql.connector                  #mysql
+import json                             #metodos para json
 
-horaTemp = ""
+horaTemp = ""                           #definicion de variables globales
 temper = 0
 tiempo = 0
 activo = 0
 arduinoEstado = False
 
-def json_validator(data):
-    try:
-        #print("mensaje mqtt: ", data)
-        json.loads(data)
+def json_validator(data):               #validacion de cadenas tipo json
+    try:                                #cadenas recibidas de node-red y arduino
+        json.loads(data)                #son validadas en estructura
         return True
     except ValueError as error:
         print("invalid json")
         return False
 
-def on_message(client, userdata, message):
-    global horaTemp
-    global temper
+def on_message(client, userdata, message):  #funcion que recibe los mensajes por mqtt desde node-red
+    global horaTemp                         #se establecen las variables como "globales"
+    global temper                           #ya que se utilizaran en todo el programa
     global tiempo
     global activo
-    horaTemp = str(message.payload.decode("utf-8"))
+    horaTemp = str(message.payload.decode("utf-8"))     #recepcion de la cadena desde node-red
     print("mensaje mqtt: ", horaTemp)
-    validaJson1 = json_validator(horaTemp)
-    if validaJson1 == True:
-        htJson = json.loads(horaTemp)
+    validaJson1 = json_validator(horaTemp)              #se valida que la cadena tenga estructura json
+    if validaJson1 == True:                             #de ser correcta la estrutura
+        htJson = json.loads(horaTemp)                   #se asigna la cadena a un objeto json
         #print("Mensaje dentro de la funcion ")
-        temper = htJson["temp"]
-        tiempo = htJson["tiem"]
-        activo = htJson["acti"]
+        temper = htJson["temp"]                         #se obtienen los valores de las variables del
+        tiempo = htJson["tiem"]                         #json y se asignan a sus respectivas 
+        activo = htJson["acti"]                         #variables globales
 
-def on_publish(client,userdata,result):             #create function for callback
+def on_publish(client,userdata,result):                 #creacopm de la función para callback
     print("data published \n")
     pass
 
 def insetarDatos(tem, pes, vel, tip):
     try:
         query = "insert into muestras (temperatura, peso, velocidad, hora, fecha, tipoProducto) values (" + str(tem) + ", " + str(pes) + ", " + str(vel) + ", NOW(), NOW(), '" + tip + "');"
-        print(query)
-        cursor = connection.cursor()
-        cursor.execute(query)
-        connection.commit()
-        cursor.close()
+        #print(query)
+        cursor = connection.cursor()        #creación del objeto tipo conector
+        cursor.execute(query)               #ejecución de la consulta para 
+        connection.commit()                 #insertar los valores provenientes
+        cursor.close()                      #de los sensores vía arduino
     except mysql.connector.Error as error:
-        print("Failed to insert record into Laptop table {}".format(error))
+        print("Error en la inserción de datos: {}".format(error))
 
 
 
-arduino = serial.Serial("/dev/ttyACM0", 115200, timeout=1.0)
+arduino = serial.Serial("/dev/ttyACM0", 115200, timeout = 1.0)  #creacion del objeto tipo serial para establecer la conexión con arduino
 #time.sleep(20)
 
-connection = mysql.connector.connect(host='localhost', port = '3306', database='secadora', user='cursoIoT', password='cursoIoT')
-broker_address = "172.16.80.230"
-tiempo = 0
+connection = mysql.connector.connect(host = 'localhost', port = '3306', database = 'secadora', user = 'cursoIoT', password = 'cursoIoT')
+#conexión a la base de datos
+broker_address = "172.16.80.230"    #direccion IP donde se encuentra el servidor mqtt
+#tiempo = 0
 
-client = mqtt.Client("P1")              #create new instance
-client.on_message=on_message            #attach function to callback
+client = mqtt.Client("P1")              #creación de nueva instancia mqtt
+client.on_message=on_message            #adjuntar función al callback
 client.connect(broker_address)          #conectar al broker
 client.loop_start()                     #inicio de loop para recibir datos
 client.subscribe("secadora/controles")
