@@ -78,12 +78,39 @@ En la sección estado se visualiza que esta haciendo el sistema:
 <li>Fin de ciclo</li>
 </ol>
 
+Sección donde se introducen los valores iniciales
+<ul>
+<li>Temperatura</li>
+<li>Tiempo</li>
+<li>Muestra</li>
+<li>Peso inicial de la muestra</li>
+<li>Tiempo transcurrido</li>
+</ul>
+
+Botones de acciones del sistema
+<ul>
+<li>Precalentado: Calienta el horno en la temperatura establecida, para poder iniciar el proceso</li>
+<li>Iniciar proceso: Comienza el proceso de secado, durante el tiempo indicado</li>
+<li>Paro de emergencia: detiene el proceso en caso de ser requerido</li>
+</ul>
+
+
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red1.png)
 
 <h3>Gráficas</h3>
 
+<ul>
+<li>Peso: muestra la perdida del peso de la muestra en relación al tiempo, cada muestra se almacena en la base de datos</li>
+<li>Temperatura: muestra la variación de la temperatura en el interior del horno, igual cada muestra se almacena en la base de datos</li>
+</ul>
+
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red2.png)
 
 <h3>Variables</h3>
+
+<ul>
+<li>Temperatura actual: muestra la temperatura actual</li>
+<li>Velocidad motor (rpm): muestra la variación de la velocidad del ventilador, cada muestra se almacena en la base de datos</li>
+</ul>
 
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red3.png)
