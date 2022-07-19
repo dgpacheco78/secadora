@@ -67,7 +67,12 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
 </ul>
 
 <h2>Funcionamiento del sistema:</h2>
-El sistema controla el funcionamiento de horno de secado de alimentos. Esto se efectua mendiante una interfaz grafica en Node-Red. Cuenta con las siguientes seccione:
+El sistema controla el funcionamiento de horno de secado de alimentos. El horno consta de un control manual obsoleto. La automatización es en la perilla que controla la temperatura. Se le instalo un servomotor, con el cual controlamos la posición. De acuerdo a la practica, colocamos el servomotor a 90 grados (la mitad de su movimiento) en la posición correspondiente a 70°C, la cual es la temperatura a la cual trabajan.
+
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/secadora.jpg)
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/secadoraControl.jpg)
+
+Esto se efectua mendiante una interfaz grafica en Node-Red. Cuenta con las siguientes seccione:
 
 <h3>Estado</h3>
 En la sección estado se visualiza que esta haciendo el sistema:
