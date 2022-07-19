@@ -77,6 +77,13 @@ En la sección estado se visualiza que esta haciendo el sistema:
 <li>Paro de emergencia</li>
 <li>Fin de ciclo</li>
 </ol>
+
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red1.png)
+
+<h3>Gráficas</h3>
+
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red2.png)
+
+<h3>Variables</h3>
+
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red3.png)
