@@ -41,3 +41,15 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
 <li>Verde: Amplificador -, Señal -, A-</li>
 <li>Blanco: Amplificador +, Señal +, A+</li>
 </ul>
+
+<h2>Sensor de efecto Hall</h2>
+<p align = "justify">El sensor Hall tiene una salida analógica y otra digital. La salida analógica devuelve una imagen de la medición y la salida digital devuelve un estado alto o bajo en función del umbral dado por el potenciómetro. Puede utilizar uno u otro dependiendo de su aplicación. El módulo puede ser alimentado por la salida de 5V del microcontrolador.
+  
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/efectoHall.png)
+ 
+<h3>Especificaciones tecnicas</h3>
+<ul>
+<li>S: entrada analogica</li>
+<li>G: - GND</li>
+<li>+: Vcc, 5V</li>
+</ul>
