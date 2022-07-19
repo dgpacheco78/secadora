@@ -65,3 +65,10 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
 <li>Naranja: Señal de entrada</li>
 <li>Rojo: Vcc, 5V</li>
 </ul>
+
+<h2>Funcionamiento del sistema:</h2>
+El sistema controla el funcionamiento de horno de secado de alimentos. Esto se efectua mendiante una interfaz grafica en Node-Red. Cuenta con las siguientes seccione:
+
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red1.png)
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red2.png)
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red3.png)
