@@ -53,3 +53,15 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
 <li>G: - GND</li>
 <li>+: Vcc, 5V</li>
 </ul>
+
+<h2>Servomotor MG995</h2>
+<p align = "justify">Es un pequeño actuador rotativo lineal que permite un control preciso de la posición, velocidad y aceleración angular. Este servomotor puede rotar de 0° hasta 180°, su voltaje de operación va desde los 4.8 a 7.2 VDC.
+  
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/servo.png)
+ 
+<h3>Especificaciones tecnicas</h3>
+<ul>
+<li>Cafe: GND</li>
+<li>Naranja: Señal de entrada</li>
+<li>Rojo: Vcc, 5V</li>
+</ul>
