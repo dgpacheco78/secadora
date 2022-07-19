@@ -1,4 +1,4 @@
-Secadora Industrial de Alimentos
+<h1>Secadora Industrial de Alimentos</h1>
 
 <h2>Objetivo:</h2>
 Diseñar e implementar la automatización del proceso del secado de alimentos
@@ -19,3 +19,25 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
 <p align = "justify">El MAX6675 es un convertidor Analógico a digital especializado para termopares tipo K. Con este módulo es posible conectar fácilmente un termopar a cualquier microcontrolador a través de una interfaz SPI unidireccional. Dentro de este pequeño circuito se encuentra la electrónica necesaria para amplificar, compensar y convertir a digital el voltaje generado por el termopar, lo que hace muy sencilla la tarea de conectar un termopar a un microcontrolador.
 
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/max6675.jpg)
+
+<h3>Especificaciones tecnicas</h3>
+<ul>
+<li>GND: 0V, Tierra</li>
+<li>VCC: +5V</li>
+<li>SCK: SPI Clock</li>
+<li>CS: SPI Chip Select</li>
+<li>SO: SPI Data Output</li>
+</ul>
+
+<h2>HX711 Transmisor de celda de carga</h2>
+<p align = "justify">El módulo HX711 es un transmisor entre las celdas de carga y un microcontrolador como Arduino/PIC/ESP, permitiendo leer el peso en la celda de manera sencilla. Es compatible con las celdas de carga de 1kg, 5kg, 20kg y 50kg. Utilizado en sistemas de medición automatizada, procesos industriales, industria médica.
+  
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/hx711.jpg)
+ 
+<h3>Especificaciones tecnicas</h3>
+<ul>
+<li>Rojo: Voltaje de excitación +, E+, VCC</li>
+<li>Negro: Voltaje de excitación -, E-, GND</li>
+<li>Verde: Amplificador -, Señal -, A-</li>
+<li>Blanco: Amplificador +, Señal +, A+</li>
+</ul>
