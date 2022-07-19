@@ -1,3 +1,34 @@
+"""
+Secadora Industrial de Alimentos
+David García Pacheco
+Alfonso Monterrosas Fuentes
+Salomón Tapia Aguilar
+Universidad Tecnológica de Izúcar de Matamoros
+
+Control del sistema
+Recibe los datos de los sensores mediante un json
+Al inicio recibe un json con valores en cero, indicando que el programa en arduino esta inicializado y listo para recibir ordenes
+Una vez que recibe las ordenes de inicio en el json se envian los valores de temperatura, pero y revoluciones por minuto del ventilador
+{"temp":0, "carg":0, "rpm":0}
+temp = temperatura del sistema, promedio de los dos sensores
+carg = peso del sensor de carga, recibe la perdida de peso de las muestras
+rmp = revoluciones por minuto del ventilador
+Los valores de las variables son enviados a Node-Red mediante MQTT
+clientP.publish("secadora/lectura/temperatura", temperA)
+clientP.publish("secadora/lectura/carga", cargaA)
+clientP.publish("secadora/lectura/rpm", rpmA)
+
+El control recibe un json proveniente de Node-Red para que controle el sistema y las ordenes indicadas son enviadas a Arduino
+{"temp":0, "tiem":0, "acti":2}
+temp = temperatura para inicio del proceso, normalmente 70°C
+tiem = tiempo del proceso de secado, de 4 a 6 horas dependiendo del tipo de muestra
+acti = actividad a realizar, se han definido 4:
+        1. Precalentando el horno
+        2. Recibiendo datos del horno
+        3. Paro de emergencia
+        4. Fin de ciclo
+"""
+
 from cgi import print_directory         #importar librerias necesarias para el funcionamiento del sistema
 import paho.mqtt.client as mqtt         #mqtt
 import time                             #retardos
@@ -84,7 +115,7 @@ while True:
                 ardJson = json.loads(inicio)
                 temperA = ardJson["temp"]
                 #cargaA = ardJson["carg"]
-                ret= clientP.publish("secadora/lectura/temperatura", temperA)
+                ret = clientP.publish("secadora/lectura/temperatura", temperA)
                 time.sleep(1)
 
     if activo == 2:
@@ -99,8 +130,8 @@ while True:
                 ardJson = json.loads(inicio)
                 temperA = ardJson["temp"]
                 cargaA = ardJson["carg"]
-                ret= clientP.publish("secadora/lectura/temperatura", temperA)
-                ret= clientP.publish("secadora/lectura/carga", cargaA)
+                ret = clientP.publish("secadora/lectura/temperatura", temperA)
+                ret = clientP.publish("secadora/lectura/carga", cargaA)
                 time.sleep(1)
 
     if activo == 3:
