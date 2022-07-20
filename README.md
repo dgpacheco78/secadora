@@ -8,7 +8,7 @@ Diseñar e implementar la automatización del proceso del secado de alimentos, e
 <li>Implementar un sistema converdidor de señales analógicas a digitales mediante Arduino</li>
 <li>Desarrollar una aplicación en Python como sistema de control</li>
 <li>Enviar los datos de los sensores mediante MQTT a Node-Red</li>
-<li>Almacenar los datos de los sensores de una base de datos en MySQL</li>
+<li>Almacenar los datos de los sensores de una base de datos en MySQL, para su análisis e interpretación de la información de los investigadores de Tecnología de Alimentos.</li>
 </ul>
 
 <h2>Introducción:</h2>
