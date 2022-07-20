@@ -1,7 +1,7 @@
 <h1>Secadora Industrial de Alimentos</h1>
 
 <h2>Objetivo:</h2>
-Diseñar e implementar la automatización del proceso del secado de alimentos
+Diseñar e implementar la automatización del proceso del secado de alimentos, en la categoría de frutas y hortalizas.
 
 <h2>Objetivos especificos:</h2>
 <ul>
