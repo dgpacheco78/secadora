@@ -66,7 +66,7 @@ Diseñar e implementar la automatización del proceso del secado de alimentos, e
 <li>Rojo: Vcc, 5V</li>
 </ul>
 
-![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/LoadCell.png)    
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/LoadCell.png)
 <p align = "justify">Conexión del sensor de carga.</p>
 
 
