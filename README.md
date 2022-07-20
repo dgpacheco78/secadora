@@ -66,6 +66,10 @@ Diseñar e implementar la automatización del proceso del secado de alimentos, e
 <li>Rojo: Vcc, 5V</li>
 </ul>
 
+![Esta es una imagen](file:///home/alfonso/Documents/Fritzing/parts/user/LoadCell.png)
+<p align = "justify">Conexión del sensor de carga.</p>
+
+
 <h2>Funcionamiento del sistema:</h2>
 El sistema controla el funcionamiento de horno de secado de alimentos. El horno consta de un control manual obsoleto. La automatización es en la perilla que controla la temperatura. Se le instalo un servomotor, con el cual controlamos la posición. De acuerdo a la practica, colocamos el servomotor a 90 grados (la mitad de su movimiento) en la posición correspondiente a 70°C, la cual es la temperatura a la cual trabajan.
 
