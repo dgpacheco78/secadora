@@ -87,7 +87,7 @@ arduino = serial.Serial("/dev/ttyACM0", 115200, timeout = 1.0)  #creacion del ob
 
 connection = mysql.connector.connect(host = 'localhost', port = '3306', database = 'secadora', user = 'cursoIoT', password = 'cursoIoT')
 #conexión a la base de datos
-broker_address = "172.16.80.230"    #direccion IP donde se encuentra el servidor mqtt
+broker_address = "192.168.0.15"    #direccion IP donde se encuentra el servidor mqtt
 #tiempo = 0
 
 client = mqtt.Client("P1")              #creación de nueva instancia mqtt
