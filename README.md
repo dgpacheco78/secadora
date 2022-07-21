@@ -59,7 +59,7 @@ Diseñar e implementar la automatización del proceso del secado de alimentos, e
   
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/servo.jpg)
  
-<h3>Especificaciones tecnicas</h3>
+<h3>Especificaciones técnicas</h3>
 <ul>
 <li>Cafe: GND</li>
 <li>Naranja: Señal de entrada</li>
