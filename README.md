@@ -1,18 +1,18 @@
 <h1>Secadora Industrial de Alimentos</h1>
 
 <h2>Objetivo:</h2>
-Diseñar e implementar la automatización del proceso del secado de alimentos
+Diseñar e implementar la automatización del proceso del secado de alimentos, en la categoría de frutas y hortalizas.
 
 <h2>Objetivos especificos:</h2>
 <ul>
 <li>Implementar un sistema converdidor de señales analógicas a digitales mediante Arduino</li>
 <li>Desarrollar una aplicación en Python como sistema de control</li>
 <li>Enviar los datos de los sensores mediante MQTT a Node-Red</li>
-<li>Almacenar los datos de los sensores de una base de datos en MySQL</li>
+<li>Almacenar los datos de los sensores de una base de datos en MySQL, para su análisis e interpretación de la información de los investigadores de Tecnología de Alimentos.</li>
 </ul>
 
 <h2>Introducción:</h2>
-<p align = "justify">La deshidrataci  ́on es una operaci  ́on unitaria que tiene como finalidad la remoci  ́on de humedad de un alimento o material a trav  ́es de los principios de transferencia de materia y energ ́ıa. Uno de los principales m  ́etodos de deshidratación esel secado convectivo. El secado en general requiere de la transferencia de energ ́ıa, en cualquiera de sus formas conducci  ́on, convecci  ́on y radiaci  ́on. El secador de charolas tiene como principio el secado convectivo, el aire que ingresa a la c  ́amara de secado, por medio de un ventilador, es calentado por la acci  ́on de resistencias el  ́ectricas, principalmente. El secador de charolas, de la universidad, posee un sistema de control de temperatura y unas rejillas que permiten o bloquean el paso del aire. El secador de charolas se emplea para la remoci  ́on de humedad de productos s  ́olidos o semis  ́olidos, como frutas y hortalizas, productos c ́arnicos, pastas, pur ́es, pelets, etc.
+<p align = "justify">La deshidratación es una operación unitaria que tiene como finalidad la remoción de humedad de un alimento o material a través de los principios de transferencia de materia y energía. Uno de los principales métodos de deshidratación es el secado convectivo. El secado en general requiere de la transferencia de energía, en cualquiera de sus formas conducción, convección y radiación. El secador de charolas tiene como principio el secado convectivo, el aire que ingresa a la cámara de secado, por medio de un ventilador, es calentado por la acción de resistencias eléctricas, principalmente. El secador de charolas, de la universidad, posee un sistema de control de temperatura y unas rejillas que permiten o bloquean el paso del aire. El secador de charolas se emplea para la remoción de humedad de productos sólidos o semisólidos, como frutas y hortalizas, productos cárnicos, pastas, purés, pelets, etc.
 
 <h2>Material necesario:</h2>
 <h3>MAX6675</h3>
@@ -59,12 +59,16 @@ Diseñar e implementar la automatización del proceso del secado de alimentos
   
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/servo.jpg)
  
-<h3>Especificaciones tecnicas</h3>
+<h3>Especificaciones técnicas</h3>
 <ul>
 <li>Cafe: GND</li>
 <li>Naranja: Señal de entrada</li>
 <li>Rojo: Vcc, 5V</li>
 </ul>
+
+![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/LoadCell.png)
+<p align = "justify">Conexión del sensor de carga.</p>
+
 
 <h2>Funcionamiento del sistema:</h2>
 El sistema controla el funcionamiento de horno de secado de alimentos. El horno consta de un control manual obsoleto. La automatización es en la perilla que controla la temperatura. Se le instalo un servomotor, con el cual controlamos la posición. De acuerdo a la practica, colocamos el servomotor a 90 grados (la mitad de su movimiento) en la posición correspondiente a 70°C, la cual es la temperatura a la cual trabajan.
