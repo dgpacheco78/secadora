@@ -90,9 +90,9 @@ void loop() {
   if(Serial.available() > 0) {          //recepción de datos de la aplicación de python
     datoPython = Serial.readString();   //lectura del puerto
     datoPython.trim();                  //elimina espacion es blanco y saltos de linea al inicio y final de la cadena
-    lcd.setCursor(0, 0);
-    lcd.print(datoPython);
-    Serial.println(datoPython);
+    //lcd.setCursor(0, 0);
+    //lcd.print(datoPython);
+    //Serial.println(datoPython);
     if(datoPython.equals("p")){         //si el dato de entrada es "p" inicia el proceso de precalentado del horno
       estado = 1;
     }
@@ -153,14 +153,18 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print("Fin de ciclo");
         delay(2000);
+        lcd.clear();
         break;
       }
       if(datoPython.equals("e")){           //"e" significa paro de emergencia, en caso de que se
         estado = 0;                         //se necesite que el sistema se detenga
         lcd.clear();
         lcd.setCursor(0, 0);
-        lcd.print("Paro de emergencia");
+        lcd.print("Paro de");
+        lcd.setCursor(0, 1);
+        lcd.print("emergencia");
         delay(2000);
+        lcd.clear();
         break;
       }
     }
