@@ -124,6 +124,4 @@ Botones de acciones del sistema
 
 ![Esta es una imagen](https://github.com/dgpacheco78/secadora/blob/main/secadora/imagenes/node-red3.png)
 
-<h2>Resultados</h2>
 
-<h2>Concluciones</h2>
